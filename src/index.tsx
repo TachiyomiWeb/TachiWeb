@@ -1,12 +1,17 @@
 import App from './App';
+import store from './store';
 import './style.css';
 import { StyledEngineProvider } from '@mui/material';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('App')!);
+
+root.render(
   <StyledEngineProvider injectFirst>
-    <App />
-  </StyledEngineProvider>,
-  document.getElementById('App')
+    <Provider store={ store }>
+      <App />
+    </Provider>
+  </StyledEngineProvider>
 );
