@@ -1,6 +1,6 @@
 import { DOMParser } from '@xmldom/xmldom';
 
-export async function i18n(language: string = 'ru'): Promise<Record<string, string>> {
+export async function i18n(language: string = 'en'): Promise<Record<string, string>> {
   const parser = new DOMParser();
 
   const response = await fetch(require(`./translations/values-${language}/strings.xml`));
