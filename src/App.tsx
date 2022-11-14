@@ -9,34 +9,34 @@ import { setTranslation } from './store/states/translation';
 import { i18n } from './services/i18n';
 
 const themes = {
-  light: create('light'),
-  dark: create('dark')
+	light: create('light'),
+	dark: create('dark'),
 };
 
 export default function App() {
-  const settings = useSelector((state: RootState) => state.settings);
-  const colors = getThemeColors(settings.theme, settings.dark);
-  const dispatch = useDispatch();
+	const settings = useSelector((state: RootState) => state.settings);
+	const colors = getThemeColors(settings.theme, settings.dark);
+	const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    i18n().then((values) => dispatch(setTranslation({ values, language: 'ru' })))
-  }, [])
+	React.useEffect(() => {
+		i18n().then((values) =>
+			dispatch(setTranslation({ values, language: 'ru' }))
+		);
+	}, []);
 
-  return (
-    <ThemeProvider theme={ {
-      ...themes[settings.dark ? 'dark' : 'light'],
-      ...(settings.amoled ? toAmoled(colors) : colors)
-    } }>
-      <GlobalStyles
-        styles={ {
-          body: darkScrollbar(),
-        } }
-      />
-      <Router>
-        <Routes>
-          <Route path='/' element={ <MainPage /> } />
-        </Routes>
-      </Router>
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider
+			theme={{
+				...themes[settings.dark ? 'dark' : 'light'],
+				...(settings.amoled ? toAmoled(colors) : colors),
+			}}
+		>
+			<GlobalStyles styles={{ body: darkScrollbar() }} />
+			<Router>
+				<Routes>
+					<Route path='/' element={<MainPage />} />
+				</Routes>
+			</Router>
+		</ThemeProvider>
+	);
 }

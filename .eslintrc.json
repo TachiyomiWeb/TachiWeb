@@ -1,0 +1,12 @@
+{
+  "plugins": ["prettier", "react"],
+  "rules": {
+    "quotes": ["error", "single"],
+		"prettier/prettier": "off",
+		"jsx-quotes": ["error", "single"],
+		"react/jsx-curly-spacing": [2, "never"]
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  }
+}

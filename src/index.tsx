@@ -9,9 +9,9 @@ import { Provider } from 'react-redux';
 const root = createRoot(document.getElementById('App')!);
 
 root.render(
-  <StyledEngineProvider injectFirst>
-    <Provider store={ store }>
-      <App />
-    </Provider>
-  </StyledEngineProvider>
+	<StyledEngineProvider injectFirst>
+		<Provider store={store}>
+			<App />
+		</Provider>
+	</StyledEngineProvider>
 );

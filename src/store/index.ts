@@ -5,13 +5,13 @@ import * as translation from './states/translation';
 import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
-  reducer: {
-    translation: translation.reducer,
-    settings: settings.reducer,
-    navigation: navigation.reducer,
-    library: library.reducer
-  }
+	reducer: {
+		translation: translation.reducer,
+		settings: settings.reducer,
+		navigation: navigation.reducer,
+		library: library.reducer,
+	},
 });
 
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
 export default store;

@@ -115,50 +115,64 @@ const dot3AnimationReverse = keyframes`
 `;
 
 const MoreRoot = styled('svg')<{ isActive: boolean }>(({ isActive }) => ({
-  width: 32,
-  height: 32,
-  '& path[name="dot1"]': {
-    d: 'path("M270.46 450.51 C220.99,450.51 180.52,490.99 180.52,540.46 C180.52,589.93 220.99,630.41 270.46,630.41 C319.93,630.41 360.41,589.93 360.41,540.46 C360.41,490.99 319.93,450.51 270.46,450.51")',
-    animation: isActive ? `${dot1Animation} .517s ease-in-out` : `${dot1AnimationReverse} .517s ease-in-out`
-  },
-  '& path[name="dot2"]': {
-    d: 'path("M540.31 450.51 C490.84,450.51 450.36,490.99 450.36,540.46 C450.36,589.93 490.84,630.41 540.31,630.41 C589.78,630.41 630.26,589.93 630.26,540.46 C630.26,490.99 589.78,450.51 540.31,450.51")',
-    animation: isActive ? `${dot2Animation} .517s ease-in-out` : `${dot2AnimationReverse} .517s ease-in-out`
-  },
-  '& path[name="dot3"]': {
-    d: 'path("M810.16 450.51 C760.68,450.51 720.21,490.99 720.21,540.46 C720.21,589.93 760.68,630.41 810.16,630.41 C859.63,630.41 900.1,589.93 900.1,540.46 C900.1,490.99 859.63,450.51 810.16,450.51")',
-    animation: isActive ? `${dot3Animation} .517s ease-in-out` : `${dot3AnimationReverse} .517s ease-in-out`
-  }
+	width: 32,
+	height: 32,
+	'& path[name="dot1"]': {
+		d: 'path("M270.46 450.51 C220.99,450.51 180.52,490.99 180.52,540.46 C180.52,589.93 220.99,630.41 270.46,630.41 C319.93,630.41 360.41,589.93 360.41,540.46 C360.41,490.99 319.93,450.51 270.46,450.51")',
+		animation: isActive
+			? `${dot1Animation} .517s ease-in-out`
+			: `${dot1AnimationReverse} .517s ease-in-out`,
+	},
+	'& path[name="dot2"]': {
+		d: 'path("M540.31 450.51 C490.84,450.51 450.36,490.99 450.36,540.46 C450.36,589.93 490.84,630.41 540.31,630.41 C589.78,630.41 630.26,589.93 630.26,540.46 C630.26,490.99 589.78,450.51 540.31,450.51")',
+		animation: isActive
+			? `${dot2Animation} .517s ease-in-out`
+			: `${dot2AnimationReverse} .517s ease-in-out`,
+	},
+	'& path[name="dot3"]': {
+		d: 'path("M810.16 450.51 C760.68,450.51 720.21,490.99 720.21,540.46 C720.21,589.93 760.68,630.41 810.16,630.41 C859.63,630.41 900.1,589.93 900.1,540.46 C900.1,490.99 859.63,450.51 810.16,450.51")',
+		animation: isActive
+			? `${dot3Animation} .517s ease-in-out`
+			: `${dot3AnimationReverse} .517s ease-in-out`,
+	},
 }));
 
-export default function More({ isActive, ...props }: { [x: string]: any, isActive: boolean }) {
-  return <MoreRoot isActive={ isActive } { ...props } viewBox='0 0 1080 1080'>
-    <g>
-      <g>
-        <path
-          name='dot1'
-          fillOpacity='1'
-          fill='currentColor'
-          fillRule='nonzero'
-        />
-      </g>
-      <g>
-        <path
-          name='dot2'
-          fillOpacity='1'
-          fill='currentColor'
-          fillRule='nonzero'
-        />
-      </g>
-      <g>
-        <path
-          name='dot3'
-          fillOpacity='1'
-          fill='currentColor'
-          fillRule='nonzero'
-        />
-      </g>
-    </g>
-    <g name='time_group' />
-  </MoreRoot>
+export default function More({
+	isActive,
+	...props
+}: {
+	[x: string]: any;
+	isActive: boolean;
+}) {
+	return (
+		<MoreRoot isActive={isActive} {...props} viewBox='0 0 1080 1080'>
+			<g>
+				<g>
+					<path
+						name='dot1'
+						fillOpacity='1'
+						fill='currentColor'
+						fillRule='nonzero'
+					/>
+				</g>
+				<g>
+					<path
+						name='dot2'
+						fillOpacity='1'
+						fill='currentColor'
+						fillRule='nonzero'
+					/>
+				</g>
+				<g>
+					<path
+						name='dot3'
+						fillOpacity='1'
+						fill='currentColor'
+						fillRule='nonzero'
+					/>
+				</g>
+			</g>
+			<g name='time_group' />
+		</MoreRoot>
+	);
 }
