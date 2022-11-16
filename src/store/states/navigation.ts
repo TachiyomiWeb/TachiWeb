@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface HistoryItem {
+	title: string | null;
+	subtitle: string | null;
 	item: number;
 	children: number | null;
 }
@@ -26,11 +28,11 @@ const slice = createSlice({
 		setItem: (state, action: PayloadAction<number>) => {
 			state.item = action.payload;
 			state.children = null;
-			state.history.push({ item: action.payload, children: null });
+			state.history.push({ title: state.title, subtitle: state.subtitle, item: action.payload, children: null });
 		},
 		setChildrenItem: (state, action: PayloadAction<number | null>) => {
 			state.children = action.payload;
-			state.history.push({ item: state.item, children: action.payload });
+			state.history.push({ title: state.title, subtitle: state.subtitle, item: state.item, children: action.payload });
 		},
 		setTitle: (state, action: PayloadAction<string | null>) => {
 			state.title = action.payload;
@@ -39,8 +41,12 @@ const slice = createSlice({
 			const previous = state.history[state.history.length - 2] ?? {
 				item: 0,
 				children: null,
+				title: 'label_library',
+				subtitle: null
 			};
 			if (previous !== undefined) {
+				state.title = previous.title;
+				state.subtitle = previous.subtitle;
 				state.item = previous.item;
 				state.children = previous.children;
 				state.history = state.history.slice(0, -1);

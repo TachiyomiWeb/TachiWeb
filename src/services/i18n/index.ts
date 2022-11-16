@@ -25,6 +25,6 @@ export async function i18n(
 }
 
 export async function getLanguageList(): Promise<Record<string, string>> {
-	const response = await fetch(require(`./languages.json`));
+	const response = await fetch(require('./languages.json'));
 	return await response.json();
 }

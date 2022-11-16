@@ -20,6 +20,7 @@ import {
 	styled,
 	Tooltip,
 } from '@mui/material';
+import MorePage from './More';
 
 const StyledBox = styled(Box)(({ theme }) => ({
 	display: 'flex',
@@ -65,6 +66,11 @@ interface Item {
 }
 
 export default function MainPage() {
+	const translation = useSelector((state: RootState) => state.translation);
+	const navigation = useSelector((state: RootState) => state.navigation);
+	// const settings = useSelector((state: RootState) => state.settings);
+	const dispatch = useDispatch();
+
 	const [items] = React.useState<Item[]>([
 		{
 			name: 'label_library',
@@ -90,7 +96,7 @@ export default function MainPage() {
 		{
 			name: 'label_more',
 			icon: More,
-			page: <></>, // <MorePage />,
+			page: <MorePage />,
 			children: [
 				{},
 				{},
@@ -111,9 +117,6 @@ export default function MainPage() {
 		},
 	]);
 
-	const translation = useSelector((state: RootState) => state.translation);
-	const navigation = useSelector((state: RootState) => state.navigation);
-	const dispatch = useDispatch();
 	const item = items[navigation.item];
 
 	return (
@@ -147,7 +150,7 @@ export default function MainPage() {
 								<ListItemButton
 									selected={navigation.item == index}
 									onClick={() =>
-										dispatch(setItem(index)) && dispatch(setTitle(item.name))
+										dispatch(setTitle(item.name)) && dispatch(setItem(index))
 									}
 								>
 									<ListItemIcon>

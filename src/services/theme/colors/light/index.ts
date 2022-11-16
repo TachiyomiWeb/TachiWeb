@@ -9,13 +9,13 @@ import yinyang from './yinyang';
 import yotsuba from './yotsuba';
 
 export default {
-  greenapple,
-  lavender,
-  midnightdusk,
-  strawberrydaiquiri,
-  tako,
-  tealturquoise,
-  tidalwave,
-  yinyang,
-  yotsuba
-}
+	greenapple,
+	lavender,
+	midnightdusk,
+	strawberrydaiquiri,
+	tako,
+	tealturquoise,
+	tidalwave,
+	yinyang,
+	yotsuba,
+};
