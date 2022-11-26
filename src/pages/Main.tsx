@@ -21,6 +21,7 @@ import {
 	Tooltip,
 } from '@mui/material';
 import MorePage from './More';
+import BrowsePage from './Browse';
 
 const StyledBox = styled(Box)(({ theme }) => ({
 	display: 'flex',
@@ -91,7 +92,7 @@ export default function MainPage() {
 			name: 'browse',
 			icon: Browse,
 			header: <div>Hello from header.</div>,
-			page: <div></div>,
+			page: <BrowsePage />,
 		},
 		{
 			name: 'label_more',

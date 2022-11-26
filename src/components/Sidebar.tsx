@@ -11,7 +11,7 @@ const Sidebar = styled(Drawer)(({ theme }) => ({
 		height: 'auto',
 		minHeight: '100%',
 		backgroundColor: theme['colorBackground'],
-		borderColor: theme['colorOutline'],
+		borderColor: 'rgba(255, 255, 255, 0.12)',
 	},
 	'& .MuiListItemIcon-root': {
 		minWidth: 0,
@@ -33,6 +33,9 @@ const Sidebar = styled(Drawer)(({ theme }) => ({
 	},
 	'& .MuiListItemButton-root.Mui-selected': {
 		backgroundColor: theme['colorPrimaryContainer'],
+	},
+	'& .MuiListItemButton-root.Mui-selected': {
+		backgroundColor: theme['colorPrimaryContainer'] + ' !important',
 	},
 	'& .MuiListItemButton-root.Mui-selected path': {
 		color: theme['colorOnPrimaryContainer'],
